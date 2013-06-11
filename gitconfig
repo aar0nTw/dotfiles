@@ -1,0 +1,53 @@
+[user]
+	name = Aaron Huang
+	email = aaroms9733@gmail.com
+[alias]
+  ck = checkout
+  cl = clone
+  cp = cherry-pick
+  sub = submodule
+  c = commit
+  l = log --graph --oneline
+  s = show --pretty=oneline
+  st = status -s
+  a = add
+  aa = add -A
+  au = add -u
+  di = diff HEAD --
+  ckh = checkout HEAD --
+    f = fetch
+merge = merge --no-ff
+  di1 = diff HEAD^ HEAD
+	d = difftool
+;[core]
+;	excludesfile = /Users/apple/.gitignore_global
+;	ignorecase = false
+;[difftool "sourcetree"]
+;	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+;	path =
+;[mergetool "sourcetree"]
+;	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+;	trustExitCode = true
+
+[color]
+   diff = auto
+   status = auto
+   branch = auto
+   ui = auto
+
+;[mergetool]
+;	keepBackup = true
+
+[github]
+        user  = aar0nTw
+        email = aaroms9733@gmail.com
+[core]
+	editor = /usr/bin/vim
+	autocrlf = input
+	excludesfile = /Users/aaron/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
