@@ -1,0 +1,27 @@
+--langdef=CoffeeScript
+--langmap=CoffeeScript:.coffee
+--regex-CoffeeScript=/(^|=[ \t])*class ([A-Za-z.]+)( extends [A-Za-z.]+)?$/\2/c,class/
+--regex-CoffeeScript=/^[ \t]*@?([A-Za-z.]+):.*[-=]>.*$/\1/f,function/ 
+--regex-CoffeeScript=/^[ \t]*([A-Za-z.]+)[ \t]+=.*[-=]>.*$/\1/f,function/
+--regex-CoffeeScript=/^[ \t]*([A-Za-z.]+)[ \t]+=[^->\n]*$/\1/v,variable/
+
+--regex-JavaScript=/(^|^[^\/*]+[[:blank:]])([A-Za-z0-9._$]+)[[:blank:]]*[:=][[:blank:]]*new[[:blank:]]+Object\(/\2/o,object/
+--regex-JavaScript=/(^|^[^\/*]+[[:blank:]])function[[:blank:]]+([A-Za-z0-9._$]+)[[:blank:]]*([^)])/\2/f,function/
+--regex-JavaScript=/(^|^[^\/*]+[[:blank:]])([A-Za-z0-9._$]+)[[:blank:]]*[:=][[:blank:]]*\[/\2/a,array/
+--regex-JavaScript=/(^|^[^\/*]+[[:blank:]])([^! ]+[^= ]+)[[:blank:]]*=[[:blank:]]*[^""]'[^'']\2/s,string/
+
+--langdef=scss
+--langmap=scss:.scss
+--regex-scss=/^[ \t]*([^\t {][^{]{1,100})(\t| )*\{/| \1/d,definition/
+--regex-scss=/^[@]mixin ([^ (]+).*/\1/m,mixing/
+--regex-scss=/^[ \t]*\.([A-Za-z0-9_-]+)/.\1/c,class,classes/
+--regex-scss=/^[ \t]*#([A-Za-z0-9_-]+)/#\1/i,id,ids/
+--regex-scss=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
+--regex-scss=/^[ \t]*@media\s+([A-Za-z0-9_-]+)/\1/m,media,medias/ 
+
+--langdef=css
+--langmap=css:.css
+--regex-css=/^[ \t]*\.([A-Za-z0-9_-]+)/.\1/c,class,classes/
+--regex-css=/^[ \t]*#([A-Za-z0-9_-]+)/#\1/i,id,ids/
+--regex-css=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
+--regex-css=/^[ \t]*@media\s+([A-Za-z0-9_-]+)/\1/m,media,medias/ 
