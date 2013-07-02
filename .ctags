@@ -7,7 +7,6 @@
 
 --regex-JavaScript=/(^|^[^\/*]+[[:blank:]])([A-Za-z0-9._$]+)[[:blank:]]*[:=][[:blank:]]*new[[:blank:]]+Object\(/\2/o,object/
 --regex-JavaScript=/(^|^[^\/*]+[[:blank:]])function[[:blank:]]+([A-Za-z0-9._$]+)[[:blank:]]*([^)])/\2/f,function/
---regex-JavaScript=/(^|^[^\/*]+[[:blank:]])([A-Za-z0-9._$]+)[[:blank:]]*[:=][[:blank:]]*\[/\2/a,array/
 --regex-JavaScript=/(^|^[^\/*]+[[:blank:]])([^! ]+[^= ]+)[[:blank:]]*=[[:blank:]]*[^""]'[^'']\2/s,string/
 
 --langdef=scss
