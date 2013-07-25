@@ -4,6 +4,7 @@ PRJ=$HOME/Projects
 WS=$HOME/Projects/Faria
 EDITOR='vim'
 VIDIR=$HOME/.vim
+DOC=$HOME/Documents
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
