@@ -44,10 +44,12 @@ merge = merge --no-ff
 [core]
 	editor = /usr/bin/vim
 	autocrlf = input
-	excludesfile = /Users/aaron/.gitignore_global
+	excludesfile = ~/Projects/.gitignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Users/aaron/Library/Application Support/SourceTree/SourceTree 1.7.4.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[push]
+	default = current
