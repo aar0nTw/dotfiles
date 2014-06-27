@@ -2,6 +2,7 @@
 	name = Aaron Huang
 	email = aaroms9733@gmail.com
 [alias]
+  cki = "!`git ck $(git branch | peco)`"
   ck = checkout
   cl = clone
   cp = cherry-pick
@@ -15,10 +16,13 @@
   au = add -u
   di = diff HEAD --
   ckh = checkout HEAD --
-    f = fetch
-merge = merge --no-ff
+  f = fetch
+  merge = merge --no-ff
   di1 = diff HEAD^ HEAD
-	d = difftool
+  d = difftool
+  dis = diff --staged
+  rb = rebase
+
 ;[core]
 ;	excludesfile = /Users/apple/.gitignore_global
 ;	ignorecase = false
@@ -42,14 +46,14 @@ merge = merge --no-ff
         user  = aar0nTw
         email = aaroms9733@gmail.com
 [core]
-	editor = /usr/bin/vim
-	autocrlf = input
+	editor = /usr/local/bin/vim
+	autocrlf = false
 	excludesfile = ~/Projects/.gitignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Users/aaron/Library/Application Support/SourceTree/SourceTree 1.7.4.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Users/aaron/Library/Application Support/SourceTree/SourceTree 1.9.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [push]
 	default = current
