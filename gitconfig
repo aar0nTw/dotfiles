@@ -1,6 +1,6 @@
 [user]
 	name = Aaron Huang
-	email = aaroms9733@gmail.com
+	email = aa*****@gmail.com
 [alias]
   cki = "!`git ck $(git branch | peco)`"
   ck = checkout
