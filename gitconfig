@@ -1,6 +1,6 @@
 [user]
 	name = Aaron Huang
-	email = aaroms9733@gmail.com
+	email = aa*****@gmail.com
 [alias]
   cki = "!git checkout $(git branch | peco)"
   adi = "!git add $(git status -s | cut -c 4- | peco)"
@@ -45,7 +45,7 @@
 
 [github]
         user  = aar0nTw
-        email = aaroms9733@gmail.com
+        email = aar******@******.com
 [core]
 	editor = /usr/local/bin/vim
 	autocrlf = false
