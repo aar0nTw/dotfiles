@@ -1,13 +1,14 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 PRJ=$HOME/Projects
+KK=$HOME/Projects/KKTIX
 WS=$HOME/Projects/Faria
 EDITOR='vim'
 VIDIR=$HOME/.vim
 DOC=$HOME/Documents
 PYTHONPATH=/usr/local/lib/python2.7/site-packages
 PGDATA=/usr/local/var/postgres
-export GOPATH=/Users/aaron/.go
+export GOPATH=/Users/aaronhuang/.go
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -33,6 +34,7 @@ alias du="du | sort -n | cut -f2- | xargs du -hs"
 alias mux=tmuxinator
 alias z=zeus
 alias vi=vim
+alias sl=ls
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -86,7 +88,6 @@ export PATH="/usr/local/heroku/bin:/usr/local/sbin:$PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.go/bin # Add Go to PATH for scripting
-export DOCKER_HOST=tcp://172.16.42.43:4243
 
 #AutoFu
 #if [ -f ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.plugin.zsh ]; then
@@ -106,3 +107,6 @@ function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 # Spring preloader for rails
 export SPRING_LOG=log/spring.log
+
+# NVM
+source ~/.nvm/nvm.sh
