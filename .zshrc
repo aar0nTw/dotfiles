@@ -37,6 +37,7 @@ alias ld="ll -d"
 alias du="du | sort -n | cut -f2- | xargs du -hs"
 alias mux=tmuxinator
 alias z=zeus
+alias vim="nvim"
 alias vi=vim
 alias sl=ls
 
@@ -111,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 #fpath=($HOME/.tmuxinator/completion ${fpath})
 #autoload -U compinit
 #compinit
-alias tmux="TERM=screen-256color-bce tmux"
+#alias tmux="TERM=screen-256color-bce tmux"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:/usr/local/sbin:$PATH"
@@ -128,11 +129,11 @@ PATH=$PATH:$HOME/.go/bin # Add Go to PATH for scripting
     #zle -N zle-line-init
 #fi
 
-#
+
 __git_files () { 
   _wanted files expl 'local files' _files
 }
-#
+
 function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 # Spring preloader for rails
@@ -143,8 +144,6 @@ source ~/.nvm/nvm.sh
 
 # Docker Machine
 # eval "$(docker-machine env default)"
-
-alias vim="nvim"
 
 # Auto Jump config https://github.com/wting/autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
