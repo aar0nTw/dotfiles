@@ -3,12 +3,14 @@ ZSH=$HOME/.oh-my-zsh
 PRJ=$HOME/Projects
 KK=$HOME/Projects/KKTIX
 WS=$HOME/Projects/Faria
-EDITOR='vim'
-VIDIR=$HOME/.vim
-DOC=$HOME/Documents
-PYTHONPATH=/usr/local/lib/python2.7/site-packages
-PGDATA=/usr/local/var/postgres
+PROJECT_PATHS=($PRJ $KK)
+export EDITOR='vim'
+export VIDIR=$HOME/.vim
+export DOC=$HOME/Documents
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+export PGDATA=/usr/local/var/postgres
 export GOPATH=/Users/aaronhuang/.go
+export TERM=xterm-256color-italic
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -19,11 +21,13 @@ export GOPATH=/Users/aaronhuang/.go
 #ZSH_THEME="eastwood"
 ZSH_THEME="bureau-ruby"
 
-LANG="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 # alias
 alias g="git"
+alias gm="goreman"
+alias fm="foreman"
 alias zshconfig="vim ~/.zshrc"
 alias fy="ydict"
 alias py="python"
@@ -65,7 +69,33 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails ruby zsh-syntax-highlighting rake npm gem brew web-search rvm bundler tmux mux zeus github heroku colored-man copydir copyfile urltools themes postgres)
+plugins=(
+  osx
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  github
+  ruby
+  gem
+  rake
+  rails
+  bundler
+  npm
+  brew
+  mux
+  colored-man
+  copydir
+  copyfile
+  urltools
+  themes
+  postgres
+  ssh-agent
+  vim
+  pj
+  emoji-clock
+  tmuxinator
+  history
+  z
+  )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,3 +140,15 @@ export SPRING_LOG=log/spring.log
 
 # NVM
 source ~/.nvm/nvm.sh
+
+# Docker Machine
+# eval "$(docker-machine env default)"
+
+alias vim="nvim"
+
+# Auto Jump config https://github.com/wting/autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+
+# added by travis gem
+[ -f /Users/aaronhuang/.travis/travis.sh ] && source /Users/aaronhuang/.travis/travis.sh
