@@ -7,7 +7,7 @@ PROJECT_PATHS=($PRJ $KK)
 export EDITOR='vim'
 export VIDIR=$HOME/.vim
 export DOC=$HOME/Documents
-#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PGDATA=/usr/local/var/postgres
 export GOPATH=/Users/aaronhuang/.go
 export TERM=xterm-256color-italic
@@ -117,8 +117,8 @@ source $ZSH/oh-my-zsh.sh
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:/usr/local/sbin:$PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.go/bin # Add Go to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.go/bin # Add Go to PATH for scripting
 
 #AutoFu
 #if [ -f ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.plugin.zsh ]; then
@@ -136,6 +136,10 @@ __git_files () {
 
 function gi() { curl http://www.gitignore.io/api/$@ ;}
 
+function killp {
+  kill $(ps -e | awk '{if(NR!=1) { print $4, $1  }}' | pick -do | tail -n +2)
+}
+
 # Spring preloader for rails
 export SPRING_LOG=log/spring.log
 
@@ -151,3 +155,5 @@ source ~/.nvm/nvm.sh
 
 # added by travis gem
 [ -f /Users/aaronhuang/.travis/travis.sh ] && source /Users/aaronhuang/.travis/travis.sh
+
+export PATH=$(npm bin):$PATH

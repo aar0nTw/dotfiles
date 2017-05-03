@@ -43,9 +43,7 @@
    diff = auto
    status = auto
    branch = auto
-   ui = auto
-
-;[mergetool]
+   ui = auto ;[mergetool]
 ;	keepBackup = true
 
 [github]
@@ -55,12 +53,8 @@
 	editor = /usr/local/bin/vim
 	autocrlf = false
 	excludesfile = ~/Projects/.gitignore
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Users/aaron/Library/Application Support/SourceTree/SourceTree 1.9.4.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  pager = diff-so-fancy | less --tabs=1,5 -R
+
 [push]
 	default = current
 [color "diff"]
@@ -69,4 +63,7 @@
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
-	diff = diff-highlight | less
+
+[diff]
+  tool = vimdiff
+
