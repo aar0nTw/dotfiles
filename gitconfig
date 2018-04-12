@@ -3,8 +3,9 @@
 	name = Aaron Huang
 	email = aaroms9733@gmail.com
 [alias]
-  cki = "!git checkout $(git branch | cut -c 3- | pick)"
-  mgi = "!git merge $(git branch | cut -c 3- | pick)"
+
+  cki = "!git checkout $(git branch | cut -c 3- | peco)"
+  mgi = "!git merge $(git branch | cut -c 3- | peco)"
   adi = "!git add $(git status -s | cut -c 4- | peco)"
   mdb = "!f() { if [ -z $1 ]; then echo 'Please assign branch namespace.'; else git branch | awk -F. '/'"$1"'/{print}' | xargs -I {} git branch -D {}; fi }; f"
   bdi = "!git branch -D $(git branch | cut -c 3- | peco)"
@@ -28,6 +29,7 @@
   d = difftool
   dis = diff --staged
   rb = rebase
+	root = rev-parse --show-toplevel
 
 ;[core]
 ;	excludesfile = /Users/apple/.gitignore_global
@@ -50,7 +52,7 @@
         user  = aar0nTw
         email = aaroms9733@gmail.com
 [core]
-	editor = /usr/local/bin/vim
+	editor = nvim
 	autocrlf = false
 	excludesfile = ~/Projects/.gitignore
   pager = diff-so-fancy | less --tabs=1,5 -R
