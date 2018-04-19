@@ -163,7 +163,6 @@ if [ -f '/Users/aaronhuang/Projects/google-cloud-sdk/completion.zsh.inc' ]; then
 
 export PATH=$PATH:/Users/aaronhuang/.azure-cli/bin
 
-source '/Users/aaronhuang/.azure-cli/az.completion'
 
 # color for less and man 
 export MANPAGER='less -s -M +Gg'
