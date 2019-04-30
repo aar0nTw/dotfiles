@@ -99,7 +99,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-#source $HOME/.bin/tmuxinator.zsh
+# source $HOME/.bin/tmuxinator.zsh
 
 # Customize to your needs...
 
@@ -143,7 +143,7 @@ function killp {
 export SPRING_LOG=log/spring.log
 
 # NVM env
-# source ~/.nvm/nvm.sh
+source ~/.nvm/nvm.sh
 
 # Docker Machine
 # eval "$(docker-machine env default)"
@@ -164,7 +164,7 @@ if [ -f '/Users/aaronhuang/Projects/google-cloud-sdk/path.zsh.inc' ]; then sourc
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/aaronhuang/Projects/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/aaronhuang/Projects/google-cloud-sdk/completion.zsh.inc'; fi
 
-export PATH=$PATH:/Users/aaronhuang/.azure-cli/bin
+# export PATH=$PATH:/Users/aaronhuang/.azure-cli/bin
 
 
 # color for less and man 
