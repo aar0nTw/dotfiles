@@ -9,8 +9,8 @@ export VIDIR=$HOME/.vim
 export DOC=$HOME/Documents
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PGDATA=/usr/local/var/postgres
-export GOPATH=/Users/aaronhuang/.go
-export TERM=xterm-256color-italic
+export GOPATH=/Users/aaron/.go
+# export TERM=xterm-256color-italic
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -23,6 +23,8 @@ export LC_ALL="en_US.UTF-8"
 
 # alias
 alias g="git"
+alias b="brew"
+alias y="yarn"
 alias gm="goreman"
 alias fm="foreman"
 alias zshconfig="vim ~/.zshrc"
@@ -72,21 +74,21 @@ plugins=(
   zsh-syntax-highlighting
   github
   ruby
-  gem
-  rake
-  rails
+#  gem
+#  rake
+#  rails
   bundler
   npm
   brew
-  mux
-  colored-man
+#  mux
+  colored-man-pages
   copydir
   copyfile
   urltools
   themes
   postgres
   ssh-agent
-  vim
+#  vim
   pj
   emoji-clock
   tmuxinator
@@ -140,8 +142,8 @@ function killp {
 # Spring preloader for rails
 export SPRING_LOG=log/spring.log
 
-# NVM
-source ~/.nvm/nvm.sh
+# NVM env
+# source ~/.nvm/nvm.sh
 
 # Docker Machine
 # eval "$(docker-machine env default)"
@@ -153,7 +155,8 @@ source ~/.nvm/nvm.sh
 # added by travis gem
 [ -f /Users/aaronhuang/.travis/travis.sh ] && source /Users/aaronhuang/.travis/travis.sh
 
-export PATH=$(npm bin):$PATH
+# NPM env
+# export PATH=$(npm bin):$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/aaronhuang/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/aaronhuang/Projects/google-cloud-sdk/path.zsh.inc'; fi
@@ -170,7 +173,7 @@ export LESS="--RAW-CONTROL-CHARS"
 lesscolors=$HOME/bin/.LESS_TERMCAP
 [[ -f $lesscolors ]] && . $lesscolors
 
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/qt/bin:$PATH"
+# QT
+# export PATH="/usr/local/opt/qt/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
