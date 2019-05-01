@@ -38,6 +38,7 @@ alias mux=tmuxinator
 alias z=zeus
 alias vim="nvim"
 alias vi=vim
+alias v="nvim"
 alias sl=ls
 
 # Set to this to use case-sensitive completion
@@ -95,6 +96,7 @@ plugins=(
   command-not-found
   history
   z
+  kubectl
   )
 
 source $ZSH/oh-my-zsh.sh
