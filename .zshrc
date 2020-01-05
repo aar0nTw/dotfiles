@@ -1,15 +1,19 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 PRJ=$HOME/Projects
-KK=$HOME/Projects/KKTIX
-WS=$HOME/Projects/Faria
-PROJECT_PATHS=($PRJ $KK)
-export EDITOR='vim'
+PH=$PRJ/infuseai
+PROJECT_PATHS=($PRJ $PH)
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export EDITOR='nvim'
 export VIDIR=$HOME/.vim
 export DOC=$HOME/Documents
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PGDATA=/usr/local/var/postgres
 export GOPATH=/Users/aaron/.go
+export KUBECONFIG=~/.kube/config:~/.kube/kind-config-z2jh
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig /usr/local/opt/sqlite/lib/pkgconfig"
 # export TERM=xterm-256color-italic
 
 # Set name of the theme to load.
@@ -40,6 +44,7 @@ alias vim="nvim"
 alias vi=vim
 alias v="nvim"
 alias sl=ls
+alias k=kubectl
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -60,44 +65,39 @@ DISABLE_AUTO_TITLE="true"
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
+  z
+  pj
+  brew
+  git
+  pip
+  pyenv
+  python
+  virtualenv
+  #copydir
+  #copyfile
+  urltools
+  docker
+  history
+  tmuxinator
+  fancy-ctrl-z
+  colored-man-pages
   zsh-autosuggestions
   zsh-syntax-highlighting
-  github
-  ruby
-#  gem
-#  rake
-#  rails
-  bundler
-  npm
-  brew
-#  mux
-  colored-man-pages
-  copydir
-  copyfile
-  urltools
-  themes
-  postgres
-  ssh-agent
-#  vim
-  pj
-  emoji-clock
-  tmuxinator
-  command-not-found
-  history
-  z
-  kubectl
-  )
+  ## Slow plugins ##
+  # kubectl
+  # command-not-found
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,14 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-# PATH
-#export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/aaron/.rvm/bin
-#export PATH=$PATH:/usr/local/sbin
-
-
 #fpath=($HOME/.tmuxinator/completion ${fpath})
-#autoload -U compinit
-#compinit
 #alias tmux="TERM=screen-256color-bce tmux"
 
 ### Added by the Heroku Toolbelt
@@ -130,7 +123,6 @@ export PATH=$PATH:$HOME/.go/bin # Add Go to PATH for scripting
     #zle -N zle-line-init
 #fi
 
-
 __git_files () { 
   _wanted files expl 'local files' _files
 }
@@ -141,33 +133,34 @@ function killp {
   kill $(ps -e | awk '{if(NR!=1) { print $4, $1  }}' | pick -do | tail -n +2)
 }
 
-# Spring preloader for rails
-export SPRING_LOG=log/spring.log
-
 # NVM env
-source ~/.nvm/nvm.sh
+#source ~/.nvm/nvm.sh
+##### nvm (node version manager) #####
+# placeholder nvm shell function
+# On first use, it will set nvm up properly which will replace the `nvm`
+# shell function with the real one
+nvm() {
+  if [[ -d "${HOME}/.nvm" ]]; then
+    NVM_DIR="${HOME}/.nvm"
+    export NVM_DIR
+    # shellcheck disable=SC1090
+    source "${NVM_DIR}/nvm.sh"
+    if [[ -e ~/.nvm/alias/default ]]; then
+      PATH="${PATH}:${HOME}.nvm/versions/node/$(cat ~/.nvm/alias/default)/bin"
+    fi
+    # invoke the real nvm function now
+    nvm "$@"
+  else
+    echo "nvm is not installed" >&2
+    return 1
+  fi
+}
 
 # Docker Machine
 # eval "$(docker-machine env default)"
 
 # Auto Jump config https://github.com/wting/autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-
-# added by travis gem
-[ -f /Users/aaronhuang/.travis/travis.sh ] && source /Users/aaronhuang/.travis/travis.sh
-
-# NPM env
-# export PATH=$(npm bin):$PATH
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/aaronhuang/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/aaronhuang/Projects/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/aaronhuang/Projects/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/aaronhuang/Projects/google-cloud-sdk/completion.zsh.inc'; fi
-
-# export PATH=$PATH:/Users/aaronhuang/.azure-cli/bin
-
+[[ -s /usr/local/etc/profile.d/autojump.sh ]] && . /usr/local/etc/profile.d/autojump.sh
 
 # color for less and man 
 export MANPAGER='less -s -M +Gg'
@@ -179,3 +172,17 @@ lesscolors=$HOME/bin/.LESS_TERMCAP
 # export PATH="/usr/local/opt/qt/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aaron/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aaron/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aaron/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaron/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -Uz compinit
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+
