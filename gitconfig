@@ -7,6 +7,7 @@
   cki = "!git checkout $(git branch | cut -c 3- | peco)"
   mgi = "!git merge $(git branch | cut -c 3- | peco)"
   adi = "!git add $(git status -s | cut -c 4- | peco)"
+  rmci = "!git rm --cached -r $(git status -s | cut -c 4- | peco)"
   mdb = "!f() { if [ -z $1 ]; then echo 'Please assign branch namespace.'; else git branch | awk -F. '/'"$1"'/{print}' | xargs -I {} git branch -D {}; fi }; f"
   bdi = "!git branch -D $(git branch | cut -c 3- | peco)"
   pr = pull-request
@@ -14,7 +15,7 @@
   cl = clone
   cp = cherry-pick
   sub = submodule
-  c = commit
+  c = commit -s
   l = log --graph --oneline
   s = show --pretty=oneline
   st = status -s
@@ -29,6 +30,8 @@
   d = difftool
   dis = diff --staged
   rb = rebase
+  sha = rev-parse --short=8 HEAD
+  cpsha = "!git rev-parse --short=8 HEAD | pbcopy"
 	root = rev-parse --show-toplevel
 
 ;[core]
@@ -69,3 +72,5 @@
 [diff]
   tool = vimdiff
 
+[init]
+	defaultBranch = main
