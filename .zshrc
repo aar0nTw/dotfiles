@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 PRJ=$HOME/Projects
@@ -7,13 +12,16 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export EDITOR='nvim'
 export VIDIR=$HOME/.vim
 export DOC=$HOME/Documents
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PGDATA=/usr/local/var/postgres
 export GOPATH=/Users/aaron/.go
-export KUBECONFIG=~/.kube/config:~/.kube/kind-config-z2jh
+export KUBECONFIG=~/.kube/config
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig /usr/local/opt/sqlite/lib/pkgconfig"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # export TERM=xterm-256color-italic
 
 # Set name of the theme to load.
@@ -28,6 +36,7 @@ export LC_ALL="en_US.UTF-8"
 # alias
 alias g="git"
 alias b="brew"
+alias ec="envchain"
 alias y="yarn"
 alias gm="goreman"
 alias fm="foreman"
@@ -76,22 +85,21 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-  z
-  pj
   brew
+  colored-man-pages
+  docker
+  fancy-ctrl-z
   git
+  history
+  pj
   pip
   pyenv
   python
-  virtualenv
-  #copydir
-  #copyfile
-  urltools
-  docker
-  history
   tmuxinator
-  fancy-ctrl-z
-  colored-man-pages
+  urltools
+  virtualenv
+  z
+  zshrc
   zsh-autosuggestions
   zsh-syntax-highlighting
   ## Slow plugins ##
@@ -113,6 +121,7 @@ export PATH="/usr/local/heroku/bin:/usr/local/sbin:$PATH"
 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.go/bin # Add Go to PATH for scripting
+export PATH=$PATH:$HOME/.krew/bin
 
 #AutoFu
 #if [ -f ~/.oh-my-zsh/custom/plugins/auto-fu/auto-fu.plugin.zsh ]; then
@@ -186,3 +195,10 @@ else
   compinit -C
 fi
 
+eval "$(direnv hook zsh)"
+
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
