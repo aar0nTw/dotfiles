@@ -1,4 +1,5 @@
 tap "homebrew/bundle"
+tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "universal-ctags/universal-ctags"
@@ -20,3 +21,5 @@ brew "tmuxinator"
 brew "urlview"
 brew "wget"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "font-iosevka"
+cask "welly"
