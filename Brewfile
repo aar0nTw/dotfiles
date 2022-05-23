@@ -4,6 +4,7 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "universal-ctags/universal-ctags"
+# brew install
 brew "asciinema"
 brew "bat"
 brew "gcc"
@@ -52,7 +53,11 @@ brew "tree"
 brew "urlview"
 brew "watchman"
 brew "zlib"
+brew "mas"
+brew "whalebrew"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+
+# cask install
 cask "deepl"
 cask "discord"
 cask "docker"
@@ -74,7 +79,8 @@ cask "squirrel"
 cask "steam"
 cask "telegram"
 cask "ueli"
-cask "vagrant"
-cask "virtualbox"
 cask "welly"
 cask "wkhtmltopdf"
+
+# Mac App store
+mas "Slack", id: 803453959
