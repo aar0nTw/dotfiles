@@ -1,16 +1,18 @@
+tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "universal-ctags/universal-ctags"
-# brew install
 brew "asciinema"
 brew "bat"
 brew "gcc"
 brew "btop"
 brew "bzip2"
 brew "cmake"
+brew "ruby"
+brew "cocoapods"
 brew "wget"
 brew "dasht"
 brew "diff-so-fancy"
@@ -31,20 +33,24 @@ brew "htop"
 brew "shared-mime-info"
 brew "imagemagick"
 brew "jq"
+brew "lazygit"
 brew "lbzip2"
 brew "libfido2"
 brew "lolcat"
 brew "lzlib"
+brew "mas"
 brew "mtr"
 brew "neovim"
 brew "openssl@3"
 brew "peco"
 brew "pre-commit"
+brew "pyenv"
+brew "pyenv-virtualenv"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
-brew "ruby"
 brew "rustup-init"
 brew "spotify-tui"
+brew "terminal-notifier"
 brew "the_silver_searcher"
 brew "tig"
 brew "tmux"
@@ -52,18 +58,16 @@ brew "tmuxinator"
 brew "tree"
 brew "urlview"
 brew "watchman"
-brew "zlib"
-brew "mas"
 brew "whalebrew"
+brew "zlib"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
-
-# cask install
 cask "deepl"
 cask "discord"
 cask "docker"
 cask "droplr"
 cask "elecom-mouse-assistant"
 cask "fantastical"
+cask "fig"
 cask "font-anonymice-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-iosevka"
@@ -81,6 +85,13 @@ cask "telegram"
 cask "ueli"
 cask "welly"
 cask "wkhtmltopdf"
-
-# Mac App store
+mas "GarageBand", id: 682658836
+mas "Health Data Server", id: 1496042074
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Slack", id: 803453959
+mas "VPN Unlimited®", id: 694633015
